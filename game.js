@@ -22,7 +22,6 @@ let questionCounter = 0;
 let bunus = 10;
 let fine = -10;
 let maxNumQuestions = 3;
-let validationMsg = "";
 
 let availableQuestions = []; //this array takes all the question objects from questionDepot array and keeps them, but eliminates the ones that are asked already
 let questionDepot = [
@@ -66,49 +65,42 @@ function getNewQuestion() {
     choice[i].textContent = currentQuestion["option" + (i + 1)];
   }
   availableQuestions.splice(questionIndex, 1); //to remove the asked question from the question list so it doesn't ask repeated questions
+}
 
-  choice.forEach((element) => {
-    let correctAnswer = currentQuestion.answer;
+function checkAnswer(element) {
+  let chosenOption = element.dataset.number;
+  let correctAnswer = currentQuestion.answer;
 
-    element.addEventListener("click", function (event) {
-      console.log(event);
-      let chosenOption = element.dataset.number;
+  let msgPosition = document.querySelector(".container"); //but it still doesn't work
+
+  if (correctAnswer == chosenOption) {
+    let myH4 = document.createElement("h4");
+
+    myH4.textContent = "Correct! 👍";
+    myH4.style.color = "green";
+    msgPosition.appendChild(myH4);
+    setTimeout(() => {
       questionCounter++;
-
-      let msgPosition = document.querySelector(".container"); //but it still doesn't work
-      validationMsg = currentQuestion.validation;
-
-      let myH4 = document.createElement("h4");
-
-      if (correctAnswer == chosenOption) {
-        validationMsg = "Correct! 👍";
-        myH4.textContent = validationMsg;
-        myH4.style.color = "green";
-        msgPosition.appendChild(myH4);
-        setTimeout(() => {
-          validationMsg = "";
-          msgPosition.removeChild(myH4);
-          myH4.remove();
-          console.log(myH4);
-        }, 2000);
-      } else {
-        validationMsg = "Wrong! 👎";
-        myH4.textContent = validationMsg;
-        myH4.style.color = "red";
-        msgPosition.appendChild(myH4);
-        setTimeout(() => {
-          validationMsg = "";
-          msgPosition.removeChild(myH4);
-          myH4.remove();
-          console.log(myH4);
-        }, 2000);
-      }
+      msgPosition.removeChild(myH4);
       if (questionCounter <= maxNumQuestions) {
-        setTimeout(getNewQuestion, 2000);
+        getNewQuestion();
         //checks if the enough number of questions are shown, if not, runs the function again
       }
-    }); // add or subtract score
-  });
+    }, 2000);
+  } else {
+    let myH4 = document.createElement("h4");
+    myH4.textContent = "Wrong! 👎";
+    myH4.style.color = "red";
+    msgPosition.appendChild(myH4);
+    setTimeout(() => {
+      questionCounter++;
+      msgPosition.removeChild(myH4);
+      if (questionCounter <= maxNumQuestions) {
+        getNewQuestion();
+        //checks if the enough number of questions are shown, if not, runs the function again
+      }
+    }, 2000);
+  }
 }
 
 takeQuiz();
