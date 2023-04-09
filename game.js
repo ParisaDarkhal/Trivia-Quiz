@@ -9,6 +9,7 @@ let timeCounter = setInterval(function () {
   if (timeLeft < 0) {
     clearInterval(timeCounter);
     timer.textContent = "Time's Up!";
+    showDoneBtn();
   }
 }, 1000);
 
@@ -19,8 +20,8 @@ console.log(choice);
 let currentQuestion = {}; //to put the selected question object from the array here
 let score = 0;
 let questionCounter = 0;
-let bunus = 10;
-let fine = -10;
+let bonus = 10;
+let fine = -5;
 let maxNumQuestions = 3;
 
 let availableQuestions = []; //this array takes all the question objects from questionDepot array and keeps them, but eliminates the ones that are asked already
@@ -72,35 +73,46 @@ function checkAnswer(element) {
   let correctAnswer = currentQuestion.answer;
 
   let msgPosition = document.querySelector(".container"); //but it still doesn't work
-
+  questionCounter++;
   if (correctAnswer == chosenOption) {
     let myH4 = document.createElement("h4");
 
     myH4.textContent = "Correct! 👍";
     myH4.style.color = "green";
     msgPosition.appendChild(myH4);
+    score += bonus;
     setTimeout(() => {
-      questionCounter++;
       msgPosition.removeChild(myH4);
-      if (questionCounter <= maxNumQuestions) {
+      if (questionCounter < maxNumQuestions) {
         getNewQuestion();
         //checks if the enough number of questions are shown, if not, runs the function again
+      } else if (questionCounter >= maxNumQuestions || timeLeft < 0) {
+        localStorage.setItem("highScore", score);
+        showDoneBtn();
       }
     }, 2000);
   } else {
     let myH4 = document.createElement("h4");
     myH4.textContent = "Wrong! 👎";
     myH4.style.color = "red";
+    score += fine;
     msgPosition.appendChild(myH4);
     setTimeout(() => {
-      questionCounter++;
       msgPosition.removeChild(myH4);
-      if (questionCounter <= maxNumQuestions) {
+      if (questionCounter < maxNumQuestions) {
         getNewQuestion();
         //checks if the enough number of questions are shown, if not, runs the function again
+      } else if (questionCounter >= maxNumQuestions || timeLeft < 0) {
+        localStorage.setItem("highScore", score);
+        showDoneBtn();
       }
     }, 2000);
   }
+}
+
+function showDoneBtn() {
+  let showBtn = document.querySelector(".done-link");
+  showBtn.style.visibility = "visible";
 }
 
 takeQuiz();
