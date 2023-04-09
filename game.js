@@ -22,6 +22,7 @@ let questionCounter = 0;
 let bunus = 10;
 let fine = -10;
 let maxNumQuestions = 3;
+let validationMsg = "";
 
 let availableQuestions = []; //this array takes all the question objects from questionDepot array and keeps them, but eliminates the ones that are asked already
 let questionDepot = [
@@ -54,13 +55,10 @@ let questionDepot = [
 
 function takeQuiz() {
   availableQuestions = [...questionDepot]; //... called spread array makes a copy of question depot to available questions and any changes on available array will not affect question depot
-  questionCounter = 0;
-  score = 0;
   getNewQuestion();
 }
 
 function getNewQuestion() {
-  questionCounter++;
   let questionIndex = Math.floor(Math.random() * availableQuestions.length);
   currentQuestion = availableQuestions[questionIndex]; //uses the random number (index) generated in the previous step to get the object form question depot
   question.textContent = currentQuestion.question;
@@ -71,29 +69,45 @@ function getNewQuestion() {
 
   choice.forEach((element) => {
     let correctAnswer = currentQuestion.answer;
-    let validationMsg = currentQuestion.validation;
 
     element.addEventListener("click", function (event) {
       console.log(event);
       let chosenOption = element.dataset.number;
+      questionCounter++;
 
-      let msgPosition = document.getElementById("question"); //but it still doesn't work
-      let validationMsg = currentQuestion.validation;
+      let msgPosition = document.querySelector(".container"); //but it still doesn't work
+      validationMsg = currentQuestion.validation;
 
       let myH4 = document.createElement("h4");
 
       if (correctAnswer == chosenOption) {
-        validationMsg = "True!";
+        validationMsg = "Correct! 👍";
         myH4.textContent = validationMsg;
-
-        document.body.appendChild(myH4);
+        myH4.style.color = "green";
+        msgPosition.appendChild(myH4);
+        setTimeout(() => {
+          validationMsg = "";
+          msgPosition.removeChild(myH4);
+          myH4.remove();
+          console.log(myH4);
+        }, 2000);
       } else {
-        console.log("wrong");
-        validationMsg = "Wrong!";
+        validationMsg = "Wrong! 👎";
         myH4.textContent = validationMsg;
-        document.body.appendChild(myH4);
+        myH4.style.color = "red";
+        msgPosition.appendChild(myH4);
+        setTimeout(() => {
+          validationMsg = "";
+          msgPosition.removeChild(myH4);
+          myH4.remove();
+          console.log(myH4);
+        }, 2000);
       }
-    });
+      if (questionCounter <= maxNumQuestions) {
+        setTimeout(getNewQuestion, 2000);
+        //checks if the enough number of questions are shown, if not, runs the function again
+      }
+    }); // add or subtract score
   });
 }
 
