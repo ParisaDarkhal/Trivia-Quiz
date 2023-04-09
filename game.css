@@ -9,6 +9,10 @@
   font-size: 62.5%; /* to make using rem system easy with 10-10 system */
 }
 
+h4 {
+  color: red;
+}
+
 #timer {
   color: var(--heading-Clr);
   font-size: 2rem;

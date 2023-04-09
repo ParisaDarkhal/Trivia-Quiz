@@ -77,16 +77,21 @@ function getNewQuestion() {
       console.log(event);
       let chosenOption = element.dataset.number;
 
-      if (correctAnswer == chosenOption) {
-        let msgPosition = document.getElementById("question");
-        let validationMsg = currentQuestion.validation;
-        validationMsg = "True!";
+      let msgPosition = document.getElementById("question"); //but it still doesn't work
+      let validationMsg = currentQuestion.validation;
 
-        let myH4 = document.createElement("h4");
+      let myH4 = document.createElement("h4");
+
+      if (correctAnswer == chosenOption) {
+        validationMsg = "True!";
         myH4.textContent = validationMsg;
+
         document.body.appendChild(myH4);
       } else {
         console.log("wrong");
+        validationMsg = "Wrong!";
+        myH4.textContent = validationMsg;
+        document.body.appendChild(myH4);
       }
     });
   });
