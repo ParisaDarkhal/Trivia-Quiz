@@ -3,12 +3,16 @@
   --text-Clr: #204051;
   --heading-Clr: #3b6978;
   --misc-Clr: #9ba4b4;
-  --font-Family: Arial, Helvetica, sans-serif;
+  --btn-hvr-Clr: #d4f3ef;
+  --btn-Clr: #b3d6d2;
+  --helvetica: Arial, Helvetica, sans-serif;
   font-size: 62.5%; /* to make using rem system easy with 10-10 system */
 }
 
 * {
   box-sizing: border-box;
+  font-family: var(--helvetica);
+
   margin: 0;
   padding: 0;
 }
@@ -21,6 +25,7 @@ h4 {
   color: var(--heading-Clr);
 }
 h1 {
+  margin-bottom: 5rem;
   font-size: 4rem;
 }
 span h1 {
@@ -36,6 +41,28 @@ h4 {
   font-size: 1.5;
 }
 
+button {
+  display: block;
+  margin: 1rem auto;
+  padding: 1rem 2.5rem;
+  width: 20rem;
+  border: var(--heading-Clr) solid 0.1rem;
+  border-radius: 10px;
+  background-color: var(--btn-Clr);
+  color: #3b6978;
+  font-weight: 700;
+}
+
+button:hover {
+  cursor: pointer;
+  background-color: var(--btn-hvr-Clr);
+  box-shadow: 0.5rem 0.5rem 0.3rem #b3d6d2;
+}
+
+a {
+  text-decoration: none;
+}
+
 .container {
   width: 100vw;
   height: 100vh;
@@ -43,4 +70,6 @@ h4 {
   justify-content: center;
   align-items: center;
   max-width: 80rem;
+  margin: 0 auto;
+  flex-direction: column;
 }

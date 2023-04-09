@@ -1,3 +1,46 @@
-body {
-  background-color: red;
+:root {
+  --main-Clr: #f1f6f9;
+  --text-Clr: #204051;
+  --heading-Clr: #3b6978;
+  --misc-Clr: #9ba4b4;
+  --btn-hvr-Clr: #d4f3ef;
+  --btn-Clr: #b3d6d2;
+  --helvetica: Arial, Helvetica, sans-serif;
+  font-size: 62.5%; /* to make using rem system easy with 10-10 system */
+}
+
+#timer {
+  color: var(--heading-Clr);
+  font-size: 2rem;
+  margin: 1rem 0 0 1rem;
+}
+
+.option-box {
+  display: flex;
+  flex-direction: row;
+  width: 80%;
+  font-size: 1.5rem;
+  font-weight: 600;
+  background-color: rgb(232, 227, 227);
+  color: var(--text-Clr);
+  border: 0.1rem solid var(--heading-Clr);
+  margin-bottom: 0.5rem;
+}
+
+.option-box:hover {
+  cursor: pointer;
+  background-color: white;
+}
+
+.option-letter {
+  background-color: var(--btn-Clr);
+  padding: 0.7rem 1rem;
+  border-right: 0.1rem solid var(--heading-Clr);
+}
+.option-letter:hover {
+  background-color: #c2e4e0;
+}
+.option-text {
+  padding: 0.5rem;
+  width: 100%;
 }
