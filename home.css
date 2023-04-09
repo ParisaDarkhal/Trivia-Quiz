@@ -1,0 +1,46 @@
+:root {
+  --main-Clr: #f1f6f9;
+  --text-Clr: #204051;
+  --heading-Clr: #3b6978;
+  --misc-Clr: #9ba4b4;
+  --font-Family: Arial, Helvetica, sans-serif;
+  font-size: 62.5%; /* to make using rem system easy with 10-10 system */
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  margin-bottom: 1.1rem;
+  color: var(--heading-Clr);
+}
+h1 {
+  font-size: 4rem;
+}
+span h1 {
+  font-size: 2rem;
+}
+h2 {
+  font-size: 3rem;
+}
+h3 {
+  font-size: 2rem;
+}
+h4 {
+  font-size: 1.5;
+}
+
+.container {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  max-width: 80rem;
+}
