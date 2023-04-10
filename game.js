@@ -33,7 +33,6 @@ let questionDepot = [
     option3: "Wolf",
     option4: "Bird",
     answer: 3,
-    validation: "",
   },
   {
     question: "Who pushed Bran out of the window?",
@@ -50,6 +49,64 @@ let questionDepot = [
     option3: "Nymeria",
     option4: "Ghost",
     answer: 4,
+  },
+  {
+    question:
+      "What is the name of the Night's Watch headquarters in Game of Thrones?",
+    option1: "The Red Keep",
+    option2: "The Wall",
+    option3: "Winterfell",
+    option4: "Castle Black",
+    answer: 4,
+  },
+  {
+    question: "What is Jamie Lannisters nickname",
+    option1: "The Blackfish",
+    option2: "The Kingslayer",
+    option3: "The Hound",
+    option4: "The Mountain",
+    answer: 2,
+  },
+  {
+    question: "Who said “A mind needs books like a sword needs a whetstone”?",
+    option1: "Jon Snow",
+    option2: "Tyrion Lannister",
+    option3: "Samwell Tarly",
+    option4: "Lord Varys",
+    answer: 2,
+  },
+  {
+    question: "What do we say to the Lord of Death?",
+    option1: "Valar Morghulis",
+    option2: "Valar Dohaeris",
+    option3: "Dracarys",
+    option4: "Not today",
+    answer: 4,
+  },
+  {
+    question: "What is Gendry’s weapon of choice?",
+    option1: "A sword",
+    option2: "A mace",
+    option3: "A warhammer",
+    option4: "A crossbow",
+    answer: 3,
+  },
+  {
+    question: "Where in King’s Landing are Gendry and Ser Davos Seaworth from?",
+    option1: "Flea Bottom",
+    option2: "The Red Keep",
+    option3: "The Street of Steel",
+    option4: "The Dragonpit",
+    answer: 1,
+  },
+  {
+    question:
+      "Who composed the iconic music for the Game of Thrones TV series?",
+    option1: "Hans Zimmer",
+    option2: "John Williams",
+    option3: "Ramin Djawadi",
+    option4: "Howard Shore",
+    answer: 3,
   },
 ];
 
