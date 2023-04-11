@@ -144,7 +144,7 @@ function checkAnswer(element) {
         getNewQuestion();
         //checks if the enough number of questions are shown, if not, runs the function again
       } else if (questionCounter >= maxNumQuestions || timeLeft < 0) {
-        localStorage.setItem("highScore", score);
+        localStorage.setItem("currentScore", score);
         showDoneBtn();
       }
     }, 2000);
@@ -160,7 +160,7 @@ function checkAnswer(element) {
         getNewQuestion();
         //checks if the enough number of questions are shown, if not, runs the function again
       } else if (questionCounter >= maxNumQuestions || timeLeft < 0) {
-        localStorage.setItem("highScore", score);
+        localStorage.setItem("currentScore", score);
         showDoneBtn();
       }
     }, 2000);
