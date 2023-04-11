@@ -51,8 +51,7 @@ let questionDepot = [
     answer: 4,
   },
   {
-    question:
-      "What is the name of the Night's Watch headquarters in Game of Thrones?",
+    question: "What is the name of the Night's Watch headquarters?",
     option1: "The Red Keep",
     option2: "The Wall",
     option3: "Winterfell",

@@ -1,5 +1,6 @@
 let username = $("#username");
 let saveBtn = $("#saveScoreBtn");
+let playAgainBtn = $("#playAgainBtn");
 let scoreSpan = $("#score");
 let showScore = $("#showScores");
 
@@ -23,6 +24,7 @@ scoreSpan.text(localStorage.getItem("currentScore"));
 
 username.keyup(function () {
   $(saveBtn).attr("disabled", false);
+  $(playAgainBtn).attr("disabled", false);
 });
 
 $(saveBtn).on("click", function (event) {
