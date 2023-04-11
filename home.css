@@ -106,3 +106,16 @@ input::placeholder {
 button:disabled {
   cursor: not-allowed;
 }
+
+#showScoresDiv {
+  height: 200px;
+  width: 200px;
+  padding: 1rem;
+  background-color: whitesmoke;
+}
+
+#showScores {
+  list-style: none;
+  font-size: 1.5rem;
+  line-height: 2.3rem;
+}
