@@ -118,4 +118,6 @@ button:disabled {
   list-style: none;
   font-size: 1.5rem;
   line-height: 2.3rem;
+  font-weight: 600;
+  color: var(--text-Clr);
 }
