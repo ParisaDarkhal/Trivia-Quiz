@@ -29,8 +29,7 @@ $(saveBtn).on("click", function (event) {
   event.preventDefault();
 
   let recentScore = {
-    // score: localStorage.getItem("currentScore"),
-    score: Math.floor(Math.random() * 100),
+    score: localStorage.getItem("currentScore"),
     name: username.val(),
   };
   scoreKeeper.push(recentScore);

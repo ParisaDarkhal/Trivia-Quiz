@@ -1,6 +1,6 @@
 // set timer
 let timer = document.querySelector("#timer");
-let counDownSecond = 15;
+let counDownSecond = 30;
 let timeLeft = counDownSecond;
 let timeCounter = setInterval(function () {
   timer.textContent = timeLeft + " Seconds left.";
