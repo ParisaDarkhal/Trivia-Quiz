@@ -4,6 +4,20 @@ let scoreSpan = $("#score");
 let showScore = $("#showScores");
 
 let scoreKeeper = [];
+/**
+ if there is saved data in local storage, uses them to show in show high score area, 
+ and assingns it to scoreKeeper otherwise, sets the scoreKeeper into an empty arry
+ */
+
+if (localStorage.getItem("highScore")) {
+  $(showScore).html(
+    JSON.parse(localStorage.getItem("highScore")).map(
+      (item) =>
+        "<li class='scoreListItem'>" + item.name + " - " + item.score + "</li>"
+    )
+  );
+  scoreKeeper = JSON.parse(localStorage.getItem("highScore"));
+}
 
 scoreSpan.text(localStorage.getItem("currentScore"));
 
