@@ -24,12 +24,11 @@ scoreSpan.text(localStorage.getItem("currentScore"));
 
 username.keyup(function () {
   $(saveBtn).attr("disabled", false);
-  $(playAgainBtn).attr("disabled", false);
 });
 
 $(saveBtn).on("click", function (event) {
   event.preventDefault();
-
+  $(playAgainBtn).attr("disabled", false);
   let recentScore = {
     score: localStorage.getItem("currentScore"),
     name: username.val(),
